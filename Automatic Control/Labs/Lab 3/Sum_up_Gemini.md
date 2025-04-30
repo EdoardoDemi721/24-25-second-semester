@@ -25,7 +25,7 @@ Ecco un riassunto degli appunti forniti, focalizzato sugli aspetti chiave per il
         * **Tempo di Picco ($\hat{t}$):** Istante della sovraelongazione massima. $\hat{t} = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}$.
         * **Tempo di Salita ($t_r$):** Tempo per raggiungere $y_\infty$ per la prima volta. $t_r=\frac{1}{\omega_n\sqrt{1-\zeta^2}}(\pi-\arccos(\zeta))$. (Gli appunti danno anche una formula per il $t_r'$ 10%-90%).
        * **Tempo di Assestamento ($\pm\alpha \%$):** $t_{s \quad \alpha_{perc} }$ è il tempo necessario affinché la risposta al gradino raggiunga e rimanga entro la fascia $\pm \alpha \%$ del valore a regime $y_\infty$.
-    * Per $\alpha=5_{perc} $, $t_{s 5 \% } \approx \frac{3}{\zeta\omega_n}$.
+    * Per $\alpha=5_{perc} $, $t_{s, 5_{perc} } \approx \frac{3}{\zeta\omega_n}$.
     * **Rilevanza per Lab 3 (Problema 2b, Problema 3):** Dovrai estrarre queste metriche ($y_\infty$, $\hat{s}$, $\hat{t}$, $t_r$, $t_{s, 5_{perc} }$) da un grafico della risposta al gradino (Problema 2b, 3) e usare le formule inverse (specialmente per $\zeta$ e $\omega_n$) per trovare i parametri del sistema (Problema 3). La formula fornita per $\zeta$ è: $\zeta=\frac{|\ln(\hat s)|}{\sqrt{\pi^2+\ln^2(\hat s)}}$ (assumendo $\hat{s}$ come rapporto, non percentuale). Una volta noto $\zeta$, puoi ricavare $\omega_n$ dalla formula di $\hat{t}$.
 
 
