@@ -24,8 +24,10 @@ Ecco un riassunto degli appunti forniti, focalizzato sugli aspetti chiave per il
         * **Sovraelongazione Massima ($\hat{s}$):** $\hat{s} = \frac{y_{max} - y_{\infty}}{y_{\infty}} = e^{-\frac{\pi\zeta}{\sqrt{1-\zeta^2}}}$. Dipende solo da $\zeta$.
         * **Tempo di Picco ($\hat{t}$):** Istante della sovraelongazione massima. $\hat{t} = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}$.
         * **Tempo di Salita ($t_r$):** Tempo per raggiungere $y_\infty$ per la prima volta. $t_r=\frac{1}{\omega_n\sqrt{1-\zeta^2}}(\pi-\arccos(\zeta))$. (Gli appunti danno anche una formula per il $t_r'$ 10%-90%).
-        * **Tempo di Assestamento ($t_{s, \alpha\%}$):** Tempo per entrare e rimanere in una fascia $\pm \alpha\%$ attorno a $y_\infty$. Per $\alpha=5\%$, $t_{s, 5\%} \approx \frac{3}{\zeta\omega_n}$.
-    * **Rilevanza per Lab 3 (Problema 2b, Problema 3):** Dovrai estrarre queste metriche ($y_\infty$, $\hat{s}$, $\hat{t}$, $t_r$, $t_{s,5\%}$) da un grafico della risposta al gradino (Problema 2b, 3) e usare le formule inverse (specialmente per $\zeta$ e $\omega_n$) per trovare i parametri del sistema (Problema 3). La formula fornita per $\zeta$ è: $\zeta=\frac{|\ln(\hat s)|}{\sqrt{\pi^2+\ln^2(\hat s)}}$ (assumendo $\hat{s}$ come rapporto, non percentuale). Una volta noto $\zeta$, puoi ricavare $\omega_n$ dalla formula di $\hat{t}$.
+        * **Tempo di Assestamento ($\pm\alpha \%$):** $t_{s, \alpha\%}$ è il tempo necessario affinché la risposta al gradino raggiunga e rimanga entro la fascia $\pm \alpha \%$ del valore a regime $y_\infty$.
+        * Per $\alpha=5\%$, $t_{s, 5\%} \approx \frac{3}{\zeta\omega_n}$.
+        * **Rilevanza per Lab 3 (Problema 2b, Problema 3):** Dovrai estrarre queste metriche ($y_\infty$, $\hat{s}$, $\hat{t}$, $t_r$, $t_{s,5\%}$) da un grafico della risposta al gradino (Problema 2b, 3) e usare le formule inverse         (specialmente per $\zeta$ e $\omega_n$) per trovare i parametri del sistema (Problema 3). La formula fornita per $\zeta$ è: $\zeta=\frac{|\ln(\hat s)|}{\sqrt{\pi^2+\ln^2(\hat s)}}$ (assumendo $\hat{s}$ come rapporto, non            percentuale). Una volta noto $\zeta$, puoi ricavare $\omega_n$ dalla formula di $\hat{t}$.
+
 
 In sintesi, per il Lab 3 devi saper: verificare la stabilità BIBO tramite i poli, calcolare la risposta a regime per ingressi costanti e sinusoidali usando $H(0)$ e $H(j\omega)$, e analizzare la risposta al gradino dei sistemi del secondo ordine per estrarre le metriche caratteristiche e/o risalire ai parametri $K, \omega_n, \zeta$.
 
@@ -75,3 +77,8 @@ Ecco un elenco di funzioni MATLAB utili per svolgere gli esercizi del Laboratori
 * `legend('Curva 1', 'Curva 2', ...)`: Aggiunge una legenda al grafico.
 
 Questo elenco dovrebbe coprire tutte le necessità per implementare le soluzioni del Laboratorio 3 in MATLAB.
+
+
+
+
+
