@@ -10,11 +10,11 @@ Ogni laboratorio affronta un tema chiave del corso, spesso accompagnato da eserc
 
 | Lab       | Status         | Topic            | Note                      |
 |-----------|----------------|------------------|---------------------------|
-| Lab1      | ✅ Completato   | Introduzione C++ |                          |
-| Lab2      | ✅ Completato   | Puntatori        |                          |
-| Lab3      | 🕐 In corso     | Classi e oggetti |                          |
-| Lab3 inf  | ❌ Da iniziare  | Ereditarietà     |                          |
-| Lab4      | ❌ Da iniziare  | Templates        |                          |
+| Lab1      | ✅ Completato   | |                          |
+| Lab2      | ✅ Completato   | |                          |
+| Lab3      | 🕐 In corso     | |                          |
+| Lab3 inf  | ❌ Da iniziare  | |                          |
+| Lab4      | ❌ Da iniziare  |  |                          |
 
 ---
 
