@@ -28,3 +28,50 @@ Ecco un riassunto degli appunti forniti, focalizzato sugli aspetti chiave per il
     * **Rilevanza per Lab 3 (Problema 2b, Problema 3):** Dovrai estrarre queste metriche ($y_\infty$, $\hat{s}$, $\hat{t}$, $t_r$, $t_{s,5\%}$) da un grafico della risposta al gradino (Problema 2b, 3) e usare le formule inverse (specialmente per $\zeta$ e $\omega_n$) per trovare i parametri del sistema (Problema 3). La formula fornita per $\zeta$ è: $\zeta=\frac{|\ln(\hat s)|}{\sqrt{\pi^2+\ln^2(\hat s)}}$ (assumendo $\hat{s}$ come rapporto, non percentuale). Una volta noto $\zeta$, puoi ricavare $\omega_n$ dalla formula di $\hat{t}$.
 
 In sintesi, per il Lab 3 devi saper: verificare la stabilità BIBO tramite i poli, calcolare la risposta a regime per ingressi costanti e sinusoidali usando $H(0)$ e $H(j\omega)$, e analizzare la risposta al gradino dei sistemi del secondo ordine per estrarre le metriche caratteristiche e/o risalire ai parametri $K, \omega_n, \zeta$.
+
+Ecco un elenco di funzioni MATLAB utili per svolgere gli esercizi del Laboratorio 3, basate sulle operazioni descritte negli appunti e nei problemi:
+
+**Definizione del Sistema:**
+
+* `tf(num, den)`: Crea un modello di funzione di trasferimento (Transfer Function) dai coefficienti del numeratore (`num`) e denominatore (`den`).
+* `zpk(z, p, k)`: Crea un modello di funzione di trasferimento specificando zeri (`z`), poli (`p`) e guadagno (`k`).
+* `ss(A, B, C, D)`: Crea un modello state-space (usato negli esempi degli appunti).
+
+**Analisi del Sistema:**
+
+* `pole(sys)`: Calcola i poli del sistema `sys` (per analisi di stabilità).
+* `zero(sys)`: Calcola gli zeri del sistema `sys`.
+* `isstable(sys)`: Verifica direttamente la stabilità del sistema (restituisce 1 se stabile, 0 altrimenti).
+* `minreal(sys)`: Rimuove cancellazioni polo/zero non minimali.
+* `dcgain(sys)`: Calcola il guadagno a frequenza zero ($H(0)$), utile per la risposta a regime al gradino.
+* `bode(sys, w)`: Calcola modulo (in dB) e fase (in gradi) della risposta in frequenza $H(j\omega)$ alle pulsazioni specificate nel vettore `w`. Se `w` è uno scalare, calcola per quella specifica pulsazione. Restituisce `[mag, phase]`.
+* `evalfr(sys, s)`: Valuta la funzione di trasferimento `sys` al valore complesso `s` (utile per calcolare $H(j\omega)$ direttamente come numero complesso: `H_jw = evalfr(sys, 1j*w0)`).
+
+**Analisi Risposta al Gradino:**
+
+* `step(sys)`: Calcola e plotta la risposta al gradino unitario del sistema `sys`.
+* `step(sys, Tfinal)`: Specifica il tempo finale della simulazione.
+* `[y, t] = step(sys)`: Restituisce i valori della risposta `y` e i corrispondenti istanti di tempo `t` senza plottare.
+* `stepinfo(sys)`: Calcola automaticamente le caratteristiche principali della risposta al gradino (RiseTime, SettlingTime, Overshoot, Peak, PeakTime, Undershoot, SteadyStateValue). Molto utile per verificare i valori letti dal grafico o calcolati manualmente.
+
+**Funzioni Matematiche Utili:**
+
+* `abs()`: Valore assoluto (utile per il modulo di $H(j\omega)$ se calcolato con `evalfr`).
+* `angle()`: Fase (in radianti) di un numero complesso (utile per la fase di $H(j\omega)$ se calcolato con `evalfr`).
+* `real()`: Parte reale di un numero complesso (per controllare i poli).
+* `log()`: Logaritmo naturale (per le formule inverse della sovraelongazione).
+* `sqrt()`: Radice quadrata (per le formule di $\omega_n, \zeta, \hat{t}$, etc.).
+* `pi`: Costante $\pi$.
+* `acos()`: Arccos K (per la formula del tempo di salita $t_r$).
+
+**Funzioni per Grafici:**
+
+* `plot(t, y)`: Crea un grafico 2D usando i vettori `t` e `y`.
+* `grid on`: Aggiunge una griglia al grafico corrente.
+* `title('Titolo')`: Aggiunge un titolo al grafico.
+* `xlabel('Etichetta Asse X')`: Aggiunge un'etichetta all'asse X.
+* `ylabel('Etichetta Asse Y')`: Aggiunge un'etichetta all'asse Y.
+* `hold on`/`hold off`: Permette/impedisce di sovrapporre più grafici nella stessa figura.
+* `legend('Curva 1', 'Curva 2', ...)`: Aggiunge una legenda al grafico.
+
+Questo elenco dovrebbe coprire tutte le necessità per implementare le soluzioni del Laboratorio 3 in MATLAB.
