@@ -78,6 +78,63 @@ Ecco un elenco di funzioni MATLAB utili per svolgere gli esercizi del Laboratori
 
 Questo elenco dovrebbe coprire tutte le necessità per implementare le soluzioni del Laboratorio 3 in MATLAB.
 
+**Time constant:**
+
+Certo, capisco che stai cercando di trovare le costanti di tempo associate ai poli di una funzione di trasferimento di un sistema del secondo ordine. Ecco come puoi fare, tenendo presente che la relazione precisa dipende dalla forma in cui è espressa la funzione di trasferimento.
+
+**Forma Generale della Funzione di Trasferimento del Secondo Ordine:**
+
+Una forma generale della funzione di trasferimento di un sistema del secondo ordine è:
+
+$$G(s) = \frac{K \omega_n^2}{s^2 + 2 \zeta \omega_n s + \omega_n^2}$$
+
+dove:
+* $K$ è il guadagno statico del sistema.
+* $\zeta$ (zeta) è il coefficiente di smorzamento (adimensionale).
+* $\omega_n$ è la frequenza naturale non smorzata (in radianti al secondo, rad/s).
+
+I poli del sistema sono le radici del denominatore della funzione di trasferimento, ottenute risolvendo l'equazione caratteristica:
+
+$$s^2 + 2 \zeta \omega_n s + \omega_n^2 = 0$$
+
+Le radici di questa equazione quadratica sono date dalla formula:
+
+$$s_{1,2} = -\zeta \omega_n \pm \omega_n \sqrt{\zeta^2 - 1}$$
+
+**Tre Casi Possibili per i Poli e le Costanti di Tempo:**
+
+La natura delle radici (e quindi delle costanti di tempo) dipende dal valore del coefficiente di smorzamento $\zeta$:
+
+1.  **Sistema Sovrasmorzato ($\zeta > 1$):**
+    * In questo caso, $\zeta^2 - 1 > 0$, quindi le due radici $s_1$ e $s_2$ sono reali e distinte, entrambe negative.
+    * I poli sono:
+        $$s_1 = -\zeta \omega_n + \omega_n \sqrt{\zeta^2 - 1} = -\frac{1}{\tau_1}$$       $$s_2 = -\zeta \omega_n - \omega_n \sqrt{\zeta^2 - 1} = -\frac{1}{\tau_2}$$
+    * Le costanti di tempo associate a questi poli sono semplicemente l'inverso del valore assoluto dei poli:
+        $$\tau_1 = -\frac{1}{s_1} = \frac{1}{\zeta \omega_n - \omega_n \sqrt{\zeta^2 - 1}}$$       $$\tau_2 = -\frac{1}{s_2} = \frac{1}{\zeta \omega_n + \omega_n \sqrt{\zeta^2 - 1}}$$
+    * Il sistema risponde lentamente senza oscillazioni. La risposta è una somma di due decadimenti esponenziali con queste due costanti di tempo.
+
+2.  **Sistema Criticamente Smorzato ($\zeta = 1$):**
+    * In questo caso, $\zeta^2 - 1 = 0$, quindi le due radici $s_1$ e $s_2$ sono reali e coincidenti:
+        $$s_1 = s_2 = -\zeta \omega_n = -\omega_n = -\frac{1}{\tau}$$
+    * C'è un solo polo reale ripetuto.
+    * La costante di tempo associata a questo polo è:
+        $$\tau = \frac{1}{\omega_n}$$
+    * Il sistema raggiunge l'equilibrio il più rapidamente possibile senza oscillazioni. La risposta contiene un termine esponenziale e un termine lineare moltiplicato per un esponenziale ($te^{-t/\tau}$).
+
+3.  **Sistema Sottosmorzato ($0 \le \zeta < 1$):**
+    * In questo caso, $\zeta^2 - 1 < 0$, quindi le due radici $s_1$ e $s_2$ sono complesse coniugate:
+        $$s_{1,2} = -\zeta \omega_n \pm j \omega_n \sqrt{1 - \zeta^2} = -\sigma \pm j \omega_d$$
+        dove $\sigma = \zeta \omega_n$ è il fattore di smorzamento esponenziale e $\omega_d = \omega_n \sqrt{1 - \zeta^2}$ è la frequenza naturale smorzata.
+    * In questo scenario, non si parla tipicamente di "costanti di tempo" nel senso stretto come nei sistemi del primo ordine con poli reali. Tuttavia, il termine $\tau = \frac{1}{\sigma} = \frac{1}{\zeta \omega_n}$ è spesso chiamato **costante di tempo dell'inviluppo esponenziale** perché determina la velocità con cui l'ampiezza delle oscillazioni decade.
+    * Il sistema risponde in modo oscillatorio con un'ampiezza che decade esponenzialmente.
+
+**In Sintesi:**
+
+* Se i poli sono reali e distinti ($ \zeta > 1 $), hai due costanti di tempo, l'inverso del valore assoluto di ciascun polo.
+* Se i poli sono reali e coincidenti ($ \zeta = 1 $), hai una singola costante di tempo, l'inverso del valore assoluto del polo ripetuto.
+* Se i poli sono complessi coniugati ($ 0 \le \zeta < 1 $), non hai costanti di tempo nel senso tradizionale, ma il reciproco della parte reale dei poli ($ \frac{1}{\zeta \omega_n} $) indica la velocità di decadimento dell'inviluppo delle oscillazioni.
+
+Per trovare le costanti di tempo, devi prima identificare i poli della tua funzione di trasferimento del secondo ordine e poi applicare le relazioni appropriate a seconda della natura di questi poli.
 
 
 
