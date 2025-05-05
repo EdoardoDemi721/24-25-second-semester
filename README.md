@@ -14,7 +14,7 @@ Ogni laboratorio affronta un tema chiave del corso, spesso accompagnato da eserc
 | Lab2      | ✅ Completato   | LTI stability and modal response|                          |
 | Lab3      | ✅ Completato   | Second order systems step response analysis and parameters |                          |
 | Lab3 inf  | ⌛ In corso  | Design of control systems using state feedback and observers|                          |
-| Lab4      | ⌛ In corso   | Analysis of frequency response and feedback control systems |                          |
+| Lab4      | ⌛ In corso   | Analysis of frequency response and feedback control systems |                          Parte 2 ( Feedback control systems: simulation, stability analysis) da iniziare. |
 
 ---
 # 🚀 OOP
