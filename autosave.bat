@@ -5,8 +5,7 @@ echo Adding new files to repo
 git add .
 
 echo Committing changes
-set /p message="Insert commit message: "
-git commit -m "%message%"
+git commit -m "Autosaved changes, too lazy to write commit message"
 
 echo Pushing changes
 git push
