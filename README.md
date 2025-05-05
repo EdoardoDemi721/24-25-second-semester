@@ -40,6 +40,6 @@ Ogni laboratorio affronta un tema chiave del corso, richiedendo di implementare 
 > 🔧 *Aggiorna questa tabella man mano che completi i laboratori, oppure piangi ogni volta che ti dimentichi una scadenza.*
 
 ---
-#Misc
+# Misc
 
 Gli script .bat servono a salvare (specificando commit message con save e senza specificare con autosave), visto che sono pigro. Pull ovviamente fa pull da git. Queste ultime righe sono abbastanza inutili, ma mi servivano per provare il pull.bat. Edit: funziona!
