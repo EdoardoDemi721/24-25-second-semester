@@ -13,6 +13,8 @@ p=pole(H)
 
 %u(t)= (3sin(0.1)t+2)eps(t)
 
+%U(t) = 3sin(0.1)t*eps + 2*eps
+
 %For the 2 step, we just multiply by the gain H(0)
 
 y1=double(2*dcgain(H))
@@ -27,7 +29,7 @@ phi=deg2rad(phi) %Bode gives phase in degrees!!!
 
 %point c)
 
-%A ss response to such input will be of the kind u*DCgain*sin(wt+phi)
+%A ss response to such input will be of the kind u*gain*sin(wt+phi)
 %To satisfy the boundary on the module, we just need |u*gain|<1. We can
 %study when the amplitude is 1
 
@@ -35,7 +37,7 @@ phi=deg2rad(phi) %Bode gives phase in degrees!!!
 
 u=1/amp %17.7658
 
-%So we need u<17.7658
+%So we need u<=17.7658
 
 
 

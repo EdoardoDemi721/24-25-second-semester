@@ -22,7 +22,9 @@ tau=1/(z*wn)
 
 %Point b)
 
-step(H);
+step(H); %Grafico della risposta a u(t)=1*eps(t) 
+
+i=stepinfo(H, 'SettlingTimeThreshold', 0.05)
 
 %From the resulting image, we recognise that
 
@@ -34,7 +36,7 @@ ymax=3.13;
 
 %then
 
-s=(ymax-yinf)/yinf
+s=(ymax-yinf)/yinf*100
 
 %The relative peak time ts is the time instant for which we get ymax, so
 
@@ -56,5 +58,6 @@ ym=yinf*0.95
 
 t5p=3.8
 
+%Fun fact: you can use stepinfo(H, 'SettlingTimeThreshold', 0.05)
 
 

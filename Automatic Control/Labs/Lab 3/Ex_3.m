@@ -4,11 +4,15 @@ yinf=1;
 
 %Knowing that the step input has amplitude 5, that means
 
+%Step input of amplitude U, yinf=U*K
+
 K=yinf/5
 
-%The max is about 1.155, so the max overshoot is
+%The ymax is about 1.155, so the max overshoot is
 
 s=(1.155-yinf)/yinf;
+
+%s=S*100=(ymax-yinf)/yinf
 
 %The relative peak time is about
 
@@ -24,7 +28,8 @@ z=(abs(log(s)))/(sqrt(pi^2+log(s)^2))
 z=round(z,1)
 
 wn=(pi-acos(z))/(tr*sqrt(1-z^2))
-wn=round(wn,1)
+
+wn_peak_time=pi/(tp*sqrt(1-z^2))
 
 %So the transfer function is
 
