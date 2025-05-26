@@ -1,4 +1,5 @@
-clc
+clc;
+clear;
 
 %% Functions definition in part 1
 
@@ -11,12 +12,32 @@ R=0.246;
 
 s=tf('s');
 
-q=(c^2/2*N)*exp(-s*R);
+q=(c^2/2*N);
 p=(s+2*N/c*R^2)*(s+1/R);
 
-numG=q;
-denG=p;
+G=q/p;
 
-numC=l;
-denC=1+s/k;
+[numG, denG]=tfdata(G, 'v');
+
+C=l/(1+s/k);
+
+[numC, denC]=tfdata(C, 'v');
+
+
+
+%% Simulink
+
+load_system('untitled4.slx');
+
+simout=sim('untitled4.slx');
+
+plot(simout);
+
+%% Prova plot
+
+L=C*G;
+
+T=L/(1+L);
+
+plot(step(T));
 
